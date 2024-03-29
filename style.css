@@ -1,0 +1,288 @@
+.navbar {
+      background-color: #f3efef; /* Transparent initially */
+      transition: background-color 0.3s ease-in-out;
+  }
+
+  
+    .navbar-brand {
+      font-size: 1.0rem;
+      padding: 0; /* Reset padding */
+    }
+    .navbar-brand img {
+      width: 150px; /* Adjust as needed */
+      height: auto; /* Maintain aspect ratio */
+    }
+    .navbar-nav .nav-link {
+      font-size: 1rem;
+    }
+
+    .top {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('Restro bgimg.jpg') no-repeat center;
+      background-size:cover;
+      background-blend-mode: darken;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .top-content {
+      padding: 20px;
+      background-color:#0c0c0c6b;
+      border-radius: 10px;
+    }
+
+    .top-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .top-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 10px 30px;
+      font-size: 1rem;
+    }
+  /* why choose us section */
+  .why-choose-us {
+    padding: 50px 0;
+  }
+  .choose-item {
+    text-align: center;
+    padding: 20px;
+  }
+  .choose-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+/* Contact Us Section */
+.reservation {
+  background-color: #f9f9f9; /* Light gray background */
+  padding: 80px 0; /* Add padding */
+}
+
+.reservation-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items at the start */
+}
+
+.form-left {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-right {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffcccc; /* Pink background */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.form-right h2 {
+  color: #333; /* Darker text color */
+}
+
+.input-wrapper {
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.contact-label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.contact-number {
+  font-size: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  color: #333; /* Darker text color */
+}
+
+.separator {
+  border-top: 1px solid #fff;
+  margin: 20px 0;
+}
+
+.address {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.business-hours {
+  font-size: 16px;
+}
+
+
+/* CSS for Menu Layout */
+.menu {
+  padding: 50px 0;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-image {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.item-details {
+  text-align: center;
+}
+
+.item-name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.item-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.item-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+
+   
+
+
+body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-footer {
+            background-color: #26272b;
+            padding: 45px 0 20px;
+            font-size: 15px;
+            line-height: 24px;
+            color: #737373;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .site-footer h6 {
+            color: #fff;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            letter-spacing: 2px;
+        }
+
+        .site-footer p {
+            color: #737373;
+        }
+
+        .footer-links a {
+            color: #737373;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .social-icons a {
+            color: #818a91;
+            font-size: 16px;
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            margin-right: 8px;
+            border-radius: 100%;
+            transition: all 0.2s linear;
+        }
+
+        .social-icons a.facebook:hover {
+        background-color: #3b5998;
+        color:white;
+        }
+        .social-icons a.twitter:hover {
+        background-color: #00aced;
+        color:white;
+        }
+        .social-icons a.instagram:hover{
+          background-color: #ea4c89;
+          color:white;
+        }
+
+
+        .menu-card .title-wrapper {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 15px;
+        }
+      
+        .menu-card .badge { margin-block-start: 0; }
+      
+        .menu-card .span {
+          flex-grow: 1;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          position: relative;
+        }
+      
+        .menu-card .span::before {
+          content: "";
+          height: 6px;
+          flex-grow: 1;
+          border-block: 1px solid var(--white-alpha-20);
+        }
+        .menu .grid-list {
+          position: relative;
+          column-gap: 90px;
+        }
+      
+        .menu .grid-list::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 50%;
+          height: 100%;
+          border-inline-start: 1px solid var(--white-alpha-20);
+        }
