@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazeez Restaurant</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+  <style>
+    .cuisine-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dish-card {
+            margin-bottom: 20px;
+        }
+
+        .dish-card .card-body {
+            padding: 20px;
+        }
+
+        .dish-card .card-title {
+            font-weight: bold;
+        }
+
+        .dish-card .price {
+            color: #009688;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .dish-card img {
+            width: 300px; /* Set a fixed width */
+            height: 300px; /* Set a fixed height */
+            border-radius: 50%; /* Make the image circular */
+            object-fit: cover; /* Ensure the image covers the circular area */
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
+        .dish-card img:hover {
+            transform: translateY(-7px);
+        }
+
+        .dish-card .card-body {
+            padding: 20px;
+            text-align: center; /* Center align the content */
+        }
+
+        .dish-card .card-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .dish-card .card-text {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #009688;
+            font-weight: bold;
+            font-size: 16px; /* Adjust the font size */
+            margin-top: auto;
+        }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand ms-auto" href="#"><img src="logo.png" alt=""></a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menu.html">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="orderOnline.html">Order Online</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-warning me-2" href="login.html" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-danger" href="signup.html" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="logIn(); return false;">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword">
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="signUp(); return false;">
+          <div class="mb-3">
+            <label for="signupEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="signupEmail" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="signupPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="signupPassword">
+          </div>
+          <button type="submit" class="btn btn-success">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="top" style="height: 600px;">
+  <div class="top-content">
+    <h1>Welcome to Lazeez Restaurant</h1>
+    <p>Celebrate the art of culinary excellence at Lazeez , where each dish is a masterpiece waiting to be discovered.</p>
+    <pre>
+    <a id="od1" class="btn btn-outline-warning" href="orderOnline.html">Order Now</a>   <button class="btn btn-outline-danger"><a href="#contact" style="color: #f9f9f9; text-decoration: none;">Book a Seat</a></button>
+  </pre>
+  </div>
+</section>
+
+
+
+<br>
+
+<div class="container">
+  <br>
+  <h2 class="cuisine-title" style="text-decoration: underline;font-style: italic;color:rgb(117, 117, 117);font-size: 35px ;">Special Dishes</h2>
+
+  <div class="dish-list">
+    <h1 class="cuisine-title"></h1>
+    <div class="row">
+      <div class="card dish-card col-md-4" style="border: none;"><img class="card-image-top" src="images/tomato soup.jpg">
+        <div class="card-body">
+          <p class="card-text"></p>
+          <p class="price"></p>
+        </div>
+      </div>
+      <div class="card dish-card col-md-4" style="border: none;"><img class="card-image-top" src="images/paneer tikka.png">
+        <div class="card-body">
+          <p class="card-text"></p>
+          <p class="price"></p>
+        </div>
+      </div>
+      <div class="card dish-card col-md-4" style="border: none;"><img class="card-image-top" src="images/chicken 65.jpg">
+        <div class="card-body">
+          <p class="card-text"></p>
+          <p class="price"></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="card dish-card col-md-4" style="border: none;"><img class="card-image-top" src="images/burata pizza.png">
+        <div class="card-body">
+          <p class="card-text"></p>
+          <p class="price"></p>
+        </div>
+      </div>
+      <div class="card dish-card col-md-4" style="border: none;"><img class="card-image-top" src="images/shahi paneer.png">
+        <div class="card-body">
+          <p class="card-text"></p>
+          <p class="price"></p>
+        </div>
+      </div>
+      <div class="card dish-card col-md-4" style="border: none;"><img class="card-image-top" src="images/basudi.png">
+        <div class="card-body">
+          <p class="card-text"></p>
+          <p class="price"></p>
+        </div>
+      </div>
+    </div>
+    <div class="justify-content-center row">
+      <a href="menu.html" class="btn btn-outline-dark">View Menu</a>
+    </div>
+  </div>
+</div>
+
+
+<hr><br>
+
+
+<section class="why-choose-us">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h2>Why Choose Us?</h2>
+        <h4>Our Strengths</h4>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="choose-item">
+          <img src="hygienic-food-logo.png" alt="Hygienic Food Logo" class="choose-icon">
+          <h3>Hygienic Food</h3>
+          <p>Our commitment to hygiene ensures that every dish is prepared with the utmost care and cleanliness.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="choose-item">
+          <img src="fresh-environment-logo.png" alt="Fresh Environment Logo" class="choose-icon">
+          <h3>Fresh Environment</h3>
+          <p>Relax and unwind in our fresh and inviting atmosphere, designed to enhance your dining experience.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="choose-item">
+          <img src="skilled-chef-logo.png" alt="Skilled Chef Logo" class="choose-icon">
+          <h3>Skilled Chef</h3>
+          <p>Our skilled chefs bring years of culinary expertise to the table, ensuring each dish is a masterpiece.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+<br>
+
+ <!-- contact -->
+ <section class="reservation" id="contact">
+  <div class="container">
+    <div class="form reservation-form bg-black-10">
+      <div class="col-md-5">
+        <form action="post"  class="row g-3">
+          <h2 class="headline-1 text-center">Online Reservation</h2>
+          <p class="form-text text-center">
+            Booking request <a href="tel:+88123123456" class="link">+88-123-123456</a> or fill out the order form
+          </p>
+          <div class="input-group">
+            <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="form-control">
+            <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="form-control">
+          </div>
+          <div class="input-group">
+            <select name="person" class="form-select">
+              <option value="1-person">1 Person</option>
+              <option value="2-person">2 Person</option>
+              <option value="3-person">3 Person</option>
+              <option value="4-person">4 Person</option>
+              <option value="5-person">5 Person</option>
+              <option value="6-person">6 Person</option>
+              <option value="7-person">7 Person</option>
+            </select>
+            <input type="date" name="reservation-date" class="form-control">
+            <select name="time" class="form-select">
+              <option value="08:00am">08 : 00 am</option>
+              <option value="09:00am">09 : 00 am</option>
+              <option value="10:00am">10 : 00 am</option>
+              <option value="11:00am">11 : 00 am</option>
+              <option value="12:00pm">12 : 00 pm</option>
+              <option value="01:00pm">01 : 00 pm</option>
+              <option value="02:00pm">02 : 00 pm</option>
+              <option value="03:00pm">03 : 00 pm</option>
+              <option value="04:00pm">04 : 00 pm</option>
+              <option value="05:00pm">05 : 00 pm</option>
+              <option value="06:00pm">06 : 00 pm</option>
+              <option value="07:00pm">07 : 00 pm</option>
+              <option value="08:00pm">08 : 00 pm</option>
+              <option value="09:00pm">09 : 00 pm</option>
+              <option value="10:00pm">10 : 00 pm</option>
+            </select>
+          </div>
+          <textarea name="message" placeholder="Message" autocomplete="off" class="form-control"></textarea>
+          <button type="submit" class="btn btn-secondary">
+            <span class="text text-1">Book A Table</span>
+          </button>
+        </form>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="form-right text-center col-md-6">
+        <h2 class="headline-1 text-center">Contact Us</h2>
+        <p class="contact-label">Booking Request</p>
+        <a href="tel:+88123123456" class="body-1 contact-number hover-underline">+88-123-123456</a>
+        <div class="separator"></div>
+        <p class="contact-label">Location</p>
+        <address class="body-4">
+          Lazeez Restaurant,<br>Sarkhej - Gandhinagar Hwy,<br> Makarba, <br>Ahmedabad,<br> Sarkhej-Okaf,<br> Gujarat-382210
+        </address>
+        <p class="contact-label">Lunch Time</p>
+        <p class="body-4">
+          Monday to Sunday <br>
+          11.00 am - 2.30pm
+        </p>
+        <p class="contact-label">Dinner Time</p>
+        <p class="body-4">
+          Monday to Sunday <br>
+          05.00 pm - 10.00pm
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<br>
+<hr>
+<br>
+
+
+<!-- Footer -->
+<footer class="site-footer mt-auto">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-5" id="about">
+              <h6>About</h6>
+              <p class="text-justify">Welcome to Lazeez, where culinary excellence meets luxury. Situated in the heart of the city, Lazeez defines fine dining. Our menu offers a symphony of flavors, crafted with passion. From the moment you arrive, sophistication surrounds you. Impeccable service ensures unforgettable experiences. Indulge in a culinary journey where each bite tells a tale of dedication. At Lazeez, elevate your dining experience.</p>
+          </div>
+          <div class="col-md-2">
+              <h6>Categories</h6>
+              <ul class="footer-links">
+                  <li><a href="#">Menu</a></li>
+              </ul>
+          </div>
+          <div class="col-md-2">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#contact">Contact Us</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Map</a></li>
+              </ul>
+          </div>
+          <div class="col-md-3" id="about">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14691.543966085927!2d72.4884286!3d22.9912195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9bc4ce73bf61%3A0x323634959dab072f!2sLJ%20University!5e0!3m2!1sen!2sin!4v1710939959962!5m2!1sen!2sin" width="350" height="290" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="padding: 50;"></iframe>
+          </div>
+      </div>
+      <hr>
+  </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8 col-sm-6 col-12">
+              <p class="copyright-text">
+                Copyright &copy; 2024 All Rights Reserved by Lazeez
+              </p>
+          </div>
+          <div class="col-md-4 col-sm-6 col-12">
+            <ul class="social-icons float-md-end list-inline">
+              <li class="list-inline-item"><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li class="list-inline-item"><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a class="instagram" href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+          </div>
+      </div>
+  </div>
+</footer>
+</body>
+</html>
