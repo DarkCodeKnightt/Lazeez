@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+    <style>
+        .navbar {
+            background-color: #f3efef; /* Transparent initially */
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .navbar-brand {
+            font-size: 1.0rem;
+            padding: 0; /* Reset padding */
+        }
+
+        .navbar-brand img {
+            width: 150px; /* Adjust as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1rem;
+        }
+
+        body {
+            background-color: #f3efef;
+            color: #333;
+            margin: 20px;
+        }
+
+        .cuisine-title {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 30px;
+        }
+        .cuisine-name {
+            text-align: center;
+            font-family: "Lucida Console", "Courier New", monospace;
+            margin-bottom: 30px;
+        }
+
+        .dish-card {
+            margin-bottom: 20px;
+        }
+
+        .dish-card img {
+            width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .dish-card .card-body {
+            padding: 20px;
+        }
+
+        .dish-card .card-title {
+            font-weight: bold;
+        }
+
+        .dish-card .price {
+            color: #009688;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .dish-card img {
+            width: 100px; /* Set a fixed width */
+            height: 100px; /* Set a fixed height */
+            border-radius: 50%; /* Make the image circular */
+            object-fit: cover; /* Ensure the image covers the circular area */
+            margin: 0 auto; /* Center the image horizontally */
+        }
+
+        .dish-card .card-body {
+            padding: 20px;
+            text-align: center; /* Center align the content */
+        }
+
+        .dish-card .card-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .dish-card .card-text {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #009688;
+            font-weight: bold;
+            font-size: 16px; /* Adjust the font size */
+            margin-top: auto;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-footer {
+            background-color: #26272b;
+            padding: 45px 0 20px;
+            font-size: 15px;
+            line-height: 24px;
+            color: #737373;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .site-footer h6 {
+            color: #fff;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            letter-spacing: 2px;
+        }
+
+        .site-footer p {
+            color: #737373;
+        }
+
+        .footer-links a {
+            color: #737373;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .social-icons a {
+            color: #818a91;
+            font-size: 16px;
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            margin-right: 8px;
+            border-radius: 100%;
+            transition: all 0.2s linear;
+        }
+
+        .social-icons a.facebook:hover {
+        background-color: #3b5998;
+        color:white;
+        }
+        .social-icons a.twitter:hover {
+        background-color: #00aced;
+        color:white;
+        }
+        .social-icons a.instagram:hover{
+          background-color: #ea4c89;
+          color:white;
+        }
+
+</style>
+    </style>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand ms-auto" href="#"><img src="logo.png" alt=""></a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="orderOnline.html">Order Online</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-warning me-2" href="login.html" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-danger" href="signup.html" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br>
+        <h1 class="cuisine-title">Menu</h1>
+        
+        <div class="dish-list">
+        </div>
+    </div>
+
+    <footer class="site-footer mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5" id="about">
+                    <h6>About</h6>
+                    <p class="text-justify">Welcome to Lazeez, where culinary excellence meets luxury. Situated in the heart of the city, Lazeez defines fine dining. Our menu offers a symphony of flavors, crafted with passion. From the moment you arrive, sophistication surrounds you. Impeccable service ensures unforgettable experiences. Indulge in a culinary journey where each bite tells a tale of dedication. At Lazeez, elevate your dining experience.</p>
+                </div>
+                <div class="col-md-2">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Menu</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Map</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3" id="about">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14691.543966085927!2d72.4884286!3d22.9912195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9bc4ce73bf61%3A0x323634959dab072f!2sLJ%20University!5e0!3m2!1sen!2sin!4v1710939959962!5m2!1sen!2sin" width="350" height="290" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="padding: 50;"></iframe>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-12">
+                    <p class="copyright-text">
+                      Copyright &copy; 2024 All Rights Reserved by Lazeez
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6 col-12">
+                  <ul class="social-icons float-md-end list-inline">
+                    <li class="list-inline-item"><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a class="instagram" href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+      </footer>
+      
+    <script>
+        const menuData = [
+            {
+                cuisine: "Soups",
+                dishes: [
+                    { name: "Tomato Soup", description: "A classic blend of ripe tomatoes, seasoned to perfection, served with croutons.", price: "₹180", imgSrc: "images/tomato soup.jpg" },
+                    { name: "Winter noodle soup", description: "A heartwarming broth with tender noodles and fresh seasonal vegetables.", price: "₹600", imgSrc: "images/winter noodle soup.jpg" },
+                    { name: "Cream corn soup", description: "A rich and creamy soup made from sweet corn kernels.", price: "₹150", imgSrc: "images/cream corn soup.jpg" },
+                    { name: "Mushroom Soup", description: "A comforting soup made with fresh mushrooms, cream, and spices.", price: "₹200", imgSrc: "images/mushroom-soup.jpg" },
+                    { name: "Lentil Soup with mix vegetable", description: "A hearty soup packed with lentils, mixed vegetables, and aromatic spices.", price: "₹180", imgSrc: "images/Lentil soup with mix vegetable.png" },
+                    { name: "Chicken Soup", description: "A comforting chicken soup with tender pieces of chicken and vegetables.", price: "₹220", imgSrc: "images/chicken soup.jpg" },
+
+                ]
+            },
+            {
+                cuisine: "Starters",
+                dishes: [
+                    { name: "Paneer Tikka", description: "Chunks of paneer marinated in spices and grilled to perfection.", price: "₹250", imgSrc: "images/paneer tikka.png" },
+                    { name: "Gravy Manchurian", description: "Crispy vegetable balls tossed in a tangy and spicy sauce.", price: "₹180", imgSrc: "images/manchurian gravy.png" },
+                    { name: "Chesse Stuffed Garlic bread", description: "Crispy garlic bread stuffed with gooey melted cheese.", price: "₹200", imgSrc: "images/chesse stuffed garlic bread.png" },
+                    { name: "Chicken 65", description: "Spicy and tangy fried chicken pieces with aromatic spices.", price: "₹300", imgSrc: "images/chicken 65.jpg" },
+                    
+                ]
+            },
+            {
+                cuisine: "Pizza & Sandwiches",
+                dishes: [
+                    { name: "Burata Pizza", description: "Pizza topped with tomato sauce, mozzarella cheese, and fresh basil.", price: "₹750", imgSrc: "images/burata pizza.png" },
+                    { name: "Genovese Star Pizza", description: "Pasta dish with egg, cheese, pancetta, and black pepper.", price: "₹900", imgSrc: "images/Genovese star pizza.png" },
+                    { name: "Rotiserrie Chicken Sandwich", description: "Grilled chicken sandwich served with lettuce, tomato, and mayonnaise", price: "₹500", imgSrc: "images/rotiserrie chicken pizza.png" },
+                    { name: "Aloo Matar sandwich", description: "Sandwich filled with spicy potato and green pea mixture.", price: "₹300", imgSrc: "images/aloo matar.png" },
+                    { name: "Cheese Corn Sandwich", description: "Sandwich filled with cheese and sweet corn mixture.", price: "₹350", imgSrc: "images/chesse corn sandwich.png" },
+                    { name: "Grilled Vegetable sandwich", description: "Sandwich filled with grilled vegetables and creamy spread.", price: "₹400", imgSrc: "images/grilled vegetable sandwich.png" },
+
+                   
+                ]
+            },
+            {
+                cuisine: "Pasta",
+                dishes: [
+                    { name: "Fettuccine", description: "Long, flat pasta noodles served with a rich tomato sauce and fresh basil.", price: "₹750", imgSrc: "images/fettuccine.png" },
+                    { name: "Pink Sauce Pasta", description: "Pasta served with a creamy sauce made from tomato and cream, seasoned with black pepper.", price: "₹900", imgSrc: "images/pink sauce pasta.png" },
+                    { name: "White Sauce Pasta", description: "Pasta served with a creamy white sauce made from butter, milk, and cheese.", price: "₹500", imgSrc: "images/white sauce pasta.png" },
+                    { name: "Red Sauce Pasta", description: "Pasta served with a tangy tomato-based sauce flavored with herbs and spices.", price: "₹550", imgSrc: "images/red sauce pasta.png" },
+                   
+                ]
+            },
+            {
+                cuisine: "Main Course",
+                dishes: [
+                    { name: "Shahi Paneer", description: "Creamy paneer cooked in a rich, flavorful gravy made with onions, tomatoes, and aromatic spices.", price: "₹250", imgSrc: "images/shahi paneer.png" },
+                    { name: "Palak Panner", description: "Soft paneer cubes cooked in a smooth spinach gravy, flavored with garlic, ginger, and spices.", price: "₹270", imgSrc: "images/Palak-Paneer.jpg" },
+                    { name: "Mix veg", description: "Assorted fresh vegetables cooked in a delicious gravy, seasoned with Indian spices.", price: "₹220", imgSrc: "images/Mix veg.png" },
+                    { name: "Butter Chicken", description: "Tender chicken pieces cooked in a creamy tomato-based sauce, flavored with butter and Indian spices.", price: "₹300", imgSrc: "images/butter chicken.png" },
+                    { name: "Idli", description: "Soft and fluffy steamed rice cakes served with coconut chutney and sambar.", price: "₹150", imgSrc: "images/idli.png" },
+                    { name: "Dosa", description: "Thin, crispy crepe made from fermented rice and lentil batter, served with coconut chutney and sambar.", price: "₹200", imgSrc: "images/dosa.png" },
+                    { name: "Manduwada", description: "Crispy fried lentil fritters, served with coconut chutney and sambar.", price: "₹100", imgSrc: "images/maduvada.png" },
+                ]
+            },
+            {
+                cuisine: "Bread",
+                dishes: [
+                    { name: "Rumali Roti", description: "Thin, soft flatbread made from refined flour, cooked on an inverted, convex griddle.", price: "₹40", imgSrc: "images/rumali roti.jpg" },
+                    { name: "Lachaa Paratha", description: "Layered, flaky flatbread made from whole wheat flour, cooked with ghee or oil.", price: "₹50", imgSrc: "images/lachaa paratha.png" },
+                    { name: "Garlic Naan", description: "Soft, leavened bread flavored with garlic and cooked in a tandoor (clay oven).", price: "₹60", imgSrc: "images/garlic naan.jpg" },
+                    { name: "Fulka", description: "Simple, everyday flatbread made from whole wheat flour, typically served with Indian curries.", price: "₹20", imgSrc: "images/fulka roti.jpg" },
+                    { name: "Tandoori roti", description: "Traditional unleavened bread made from whole wheat flour, cooked in a tandoor (clay oven).", price: "₹30", imgSrc: "images/tandoori roti.png" },
+                ]
+            },
+            {
+                cuisine: "Dal",
+                dishes: [
+                { name: "Dal Tadka", description: "Yellow lentils tempered with spices like cumin, mustard seeds, and garlic.", price: "₹100", imgSrc: "images/dal tadka-1.png" },
+                { name: "Dal Fry", description: "Mixed lentils cooked with onions, tomatoes, and aromatic spices.", price: "₹120", imgSrc: "images/dal fry.png" },
+                { name: "Dal Makhni", description: "Creamy black lentils cooked with butter, cream, and a blend of spices.", price: "₹150", imgSrc: "images/dal makhni.png" },
+                { name: "Gujarati Dal", description: "Sweet and tangy lentil preparation with a tempering of mustard seeds, curry leaves, and asafoetida.", price: "₹110", imgSrc: "images/gujarati dal.png" },
+                    
+                ]
+            },
+            {
+                cuisine: "Rice",
+                dishes: [
+                { name: "Plain Rice", description: "Steamed basmati rice, light and fluffy.", price: "₹50", imgSrc: "images/plain rice.png" },
+                { name: "Jeera Rice", description: "Basmati rice flavored with cumin seeds and ghee.", price: "₹60", imgSrc: "images/jeera rice.png" },
+                { name: "Pulav", description: "Fragrant rice cooked with vegetables and spices.", price: "₹80", imgSrc: "images/pulav.png" },
+                { name: "Chicken Biryani", description: "Traditional Indian rice dish cooked with marinated chicken and aromatic spices.", price: "₹180", imgSrc: "images/chicken biryani.png" },
+                    
+                ]
+            },
+            {
+                cuisine: "Deserts",
+                dishes: [
+                    { name: "Gulab Jamun", description: "Soft and syrupy Indian dessert made from milk solids.", price: "₹80", imgSrc: "images/gulab jamun.png" },
+                    { name: "Strawberry Cheese Cake", description: "Creamy cheesecake topped with fresh strawberries.", price: "₹150", imgSrc: "images/strawberry chesse cake.jpg" },
+                    { name: "Basundi", description: "Rich and creamy Indian dessert made from condensed milk.", price: "₹120", imgSrc: "images/basudi.png" },
+                    { name: "Choclate moose", description: "Light and airy chocolate dessert, perfect for chocolate lovers.", price: "₹120", imgSrc: "images/choclate moose.png" },
+                    { name: "Brownie with Icecream", description: "Warm chocolate brownie served with a scoop of vanilla ice cream.", price: "₹200", imgSrc: "images/brownie with icecream.png" },
+                    // Add more Italian dishes here
+                ]
+            },
+            {
+                cuisine: "Fixed Thali",
+                dishes: [
+                { name: "Gujarati Thali", description: "A traditional Gujarati meal served on a platter with a variety of dishes including dal, vegetables, bread, and sweets.", price: "₹300", imgSrc: "images/gujarati thali.png" },
+                { name: "Punjabi Thali", description: "A hearty Punjabi meal served on a platter with dishes like dal makhani, paneer tikka, butter chicken, naan, and rice.", price: "₹280", imgSrc: "images/Punjabi thali.png" },
+
+                ]
+            },
+        ];
+
+        // Function to create a dish card
+        function createDishCard(dish) {
+            const card = document.createElement('div');
+            card.classList.add('card', 'dish-card');
+
+            const img = document.createElement('img');
+            img.classList.add('card-img-top');
+            img.src = dish.imgSrc;
+            img.alt = dish.name;
+
+            const cardBody = document.createElement('div');
+            cardBody.classList.add('card-body');
+
+            const title = document.createElement('h5');
+            title.classList.add('card-title');
+            title.textContent = dish.name;
+
+            const description = document.createElement('p');
+            description.classList.add('card-text');
+            description.textContent = dish.description;
+
+            const price = document.createElement('p');
+            price.classList.add('price');
+            price.textContent = dish.price;
+
+            cardBody.appendChild(title);
+            cardBody.appendChild(description);
+            cardBody.appendChild(price);
+
+            card.appendChild(img);
+            card.appendChild(cardBody);
+
+            return card;
+        }
+
+        //
+        function displayDishes() {
+        const dishList = document.querySelector('.dish-list');
+
+        menuData.forEach((cuisineData) => {
+            const cuisineTitle = document.createElement('h2');
+            cuisineTitle.classList.add('cuisine-title');
+            cuisineTitle.textContent = cuisineData.cuisine;
+            dishList.appendChild(cuisineTitle);
+
+            cuisineData.dishes.forEach(dish => {
+                const dishCard = createDishCard(dish);
+                dishList.appendChild(dishCard);
+            });
+        });
+        }
+    // Function to create a dish card
+    function createDishCard(dish) {
+        const card = document.createElement('div');
+        card.classList.add('card', 'dish-card');
+
+        const img = document.createElement('img');
+        img.classList.add('card-img-top');
+        img.src = dish.imgSrc;
+        img.alt = dish.name;
+
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+
+        const title = document.createElement('h5');
+        title.classList.add('card-title');
+        title.textContent = dish.name;
+
+        const description = document.createElement('p');
+        description.classList.add('card-text');
+        description.textContent = dish.description;
+
+        const price = document.createElement('p');
+        price.classList.add('price');
+        price.textContent = dish.price;
+
+        cardBody.appendChild(title);
+        cardBody.appendChild(description);
+        cardBody.appendChild(price);
+
+        card.appendChild(img);
+        card.appendChild(cardBody);
+
+        return card;
+    }
+
+    // Display dishes when the page loads
+    window.onload = function () {
+        displayDishes();
+    };
+</script>
+</body>
+</html>
